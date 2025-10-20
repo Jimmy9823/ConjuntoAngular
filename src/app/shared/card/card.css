@@ -1,0 +1,89 @@
+.card {
+  width: 280px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+  position: relative;
+}
+
+.card-img img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #1e63f0;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1a237e;
+}
+
+h4 {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.precio-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.precio {
+  color: #1e63f0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.rating .estrella {
+  color: #fbbf24;
+}
+
+.iconos fa-icon {
+  margin-right: 0.3rem;
+  color: #555;
+}
+
+.btn-ver {
+  background-color: #1e63f0;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 0.6rem;
+  transition: background 0.3s;
+}
+
+.btn-ver:hover {
+  background-color: #114dc2;
+}

@@ -1,0 +1,70 @@
+/* --- Estilos base del header --- */
+header {
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px);
+}
+
+.elegant-shadow {
+  box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.1);
+}
+
+/* --- Efecto de resplandor en el recuadro verde --- */
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from { box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
+  to { box-shadow: 0 0 30px rgba(34, 197, 94, 0.6); }
+}
+
+/* --- Gradiente verde para texto y fondo --- */
+.text-gradient-green {
+  background: linear-gradient(135deg, #059669, #16a34a, #22c55e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-green {
+  background: linear-gradient(135deg, #059669, #16a34a, #22c55e);
+}
+
+/* --- Bordes orgánicos del rectángulo verde --- */
+.organic-border {
+  border-radius: 2rem 1rem 2rem 1rem;
+}
+
+/* --- Bloque del ícono --- */
+.relative.flex-shrink-0 {
+  width: auto;
+  height: auto;
+}
+
+.bg-gradient-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+}
+
+/* --- Alineación del bloque icono + texto --- */
+.flex.items-center.space-x-4 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Texto del encabezado --- */
+.text-3xl {
+  font-size: 1.75rem;
+}
+
+.text-emerald-700 {
+  color: #047857;
+}

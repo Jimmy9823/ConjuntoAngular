@@ -1,0 +1,49 @@
+<div class="card">
+  <div *ngIf="imagen" class="card-img">
+    <img [src]="imagen" alt="imagen-card" />
+    <span class="badge" *ngIf="extraInfo">{{ extraInfo }}</span>
+  </div>
+
+  <div class="card-body">
+    <h3>{{ titulo }}</h3>
+    <h4 *ngIf="subtitulo">{{ subtitulo }}</h4>
+    <p *ngIf="descripcion">{{ descripcion }}</p>
+
+    <div class="precio-rating" *ngIf="precio || rating">
+      <span class="precio" *ngIf="precio">{{ precio }}</span>
+      <div class="rating" *ngIf="rating">
+        <fa-icon
+          *ngFor="let i of [].constructor(5); let idx = index"
+          [icon]="idx < rating ? 'star' : 'star-half'"
+          class="estrella"
+        ></fa-icon>
+      </div>
+    </div>
+
+    <div class="iconos" *ngIf="iconos.length > 0">
+      <fa-icon *ngFor="let icono of iconos" [icon]="icono"></fa-icon>
+    </div>
+
+    <button
+      *ngIf="mostrarBoton"
+      class="btn-ver"
+      (click)="emitirAccion()">
+      {{ textoBoton }}
+    </button>
+  </div>
+</div>
+
+<!-- 
+<app-card
+  [imagen]="'/assets/apto.jpg'"
+  [titulo]="'Apt 203 - Torre B'"
+  [subtitulo]="'2 hab • 1 baño • Amoblado'"
+  [precio]="'$1.2M / mes'"
+  [extraInfo]="'ARRIENDO'"
+  [iconos]="[faUser, faPhone]"
+  [rating]="4"
+  [mostrarBoton]="true"
+  textoBoton="Ver Detalles"
+  (clickBoton)="verDetalles()">
+</app-card> 
+-->

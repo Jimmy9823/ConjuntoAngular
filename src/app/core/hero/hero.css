@@ -1,0 +1,44 @@
+.hero-bg {
+  background: url('https://www.bienesonline.com/colombia/photos/vendo-apartamento-porvenir-1-bosa-APV1962921662419966-892.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: transform 0.1s ease-out;
+}
+
+.glass-effect {
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.organic-border {
+  border-radius: 2rem 1rem 2rem 1rem;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

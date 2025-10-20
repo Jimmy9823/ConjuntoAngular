@@ -1,0 +1,46 @@
+<section class="mb-20">
+  <div class="bg-white organic-border elegant-shadow overflow-hidden">
+    <div class="grid lg:grid-cols-2 gap-0">
+      <div class="p-12 bg-gradient-to-br from-emerald-600 via-green-600 to-emerald-700 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-60 h-60 bg-white/5 rounded-full -translate-y-30 translate-x-30"></div>
+        <div class="relative z-10">
+          <h3 class="text-3xl font-black mb-8">¿Necesitas Ayuda?</h3>
+          <div class="space-y-8">
+            <div 
+              *ngFor="let info of infoContacto"
+              class="flex items-start space-x-6">
+              <div class="glass-effect p-4 organic-border">
+                <i [ngClass]="[info.icon, 'text-2xl']"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-xl mb-2">{{ info.title }}</h4>
+                <p 
+                  *ngFor="let line of info.lines"
+                  [ngClass]="info.icon === 'fas fa-phone' ? 'opacity-95 text-lg font-semibold' : 'opacity-95 text-lg'">
+                  {{ info.lines }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-12 bg-gradient-to-br from-gray-50 to-emerald-50">
+        <div class="h-full flex items-center justify-center">
+          <div class="text-center">
+            <img 
+              [src]="imagenOficina"
+              alt="Recepción del conjunto" 
+              class="w-full h-56 object-cover organic-border mb-6 shadow-xl">
+            <h4 class="text-2xl font-black text-gray-800 mb-3">Oficina de Administración</h4>
+            <p class="text-emerald-600 mb-6 text-lg">Portería - Segundo Piso</p>
+            <button 
+              (click)="onAgendarCita()"
+              class="bg-gradient-green hover:shadow-2xl text-white px-8 py-4 organic-border font-bold transition-all duration-300 hover:scale-105">
+              Agendar Cita
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

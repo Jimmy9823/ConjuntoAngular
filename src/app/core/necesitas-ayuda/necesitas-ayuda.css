@@ -1,0 +1,27 @@
+.organic-border {
+  border-radius: 2rem 1rem 2rem 1rem;
+}
+
+.elegant-shadow {
+  box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.1);
+}
+
+.glass-effect {
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bg-gradient-green {
+  background: linear-gradient(135deg, #059669, #16a34a, #22c55e);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}

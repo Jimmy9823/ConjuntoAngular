@@ -1,0 +1,33 @@
+<header 
+  class="bg-white/90 backdrop-blur-md border-b border-green-200 fixed w-full top-0 z-50 elegant-shadow transition-all duration-300"
+  [class.scrolled]="isScrolled">
+
+  <div class="container mx-auto px-6 py-4">
+    <!-- Contenedor principal -->
+    <div class="flex items-center justify-start space-x-5">
+      
+      <!-- CONTENEDOR DEL BLOQUE (ÍCONO + TEXTO) -->
+      <div class="flex items-center space-x-4">
+        
+        <!-- BLOQUE DEL ÍCONO -->
+        <div class="relative flex-shrink-0">
+          <div class="bg-gradient-green p-4 organic-border shadow-lg pulse-glow w-14 h-14 flex items-center justify-center">
+            <i class="fas fa-building text-white text-2xl"></i>
+          </div>
+          <div class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full animate-pulse"></div>
+        </div>
+
+        <!-- BLOQUE DEL TEXTO -->
+        <div class="flex flex-col justify-center leading-tight">
+          <h1 class="text-3xl font-black text-gradient-green tracking-tight">
+            Alameda El Porvenir
+          </h1>
+          <p class="text-emerald-700 text-sm font-semibold tracking-wider">
+            ETAPA 1 • CONJUNTO RESIDENCIAL
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>

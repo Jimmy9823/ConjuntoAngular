@@ -1,0 +1,20 @@
+<button
+  class="{{ tipo }}"
+  [disabled]="disabled"
+  (click)="ejecutarAccion()"
+  [ngStyle]="estilo"
+>
+  <i *ngIf="icono" [class]="icono" style="margin-right: 6px;"></i>
+  {{ label }}
+</button>
+
+<!--
+Se declara asi:  
+<app-boton
+  label="Guardar cambios"  Nombre del boton
+  tipo="btn btn-success"  Tipo de bootstrap o clase en CSS
+  icono="fa-solid fa-floppy-disk" Icono de font Awesome
+  [estilo]="{ 'padding': '10px 16px', 'font-size': '16px' }" Estilo unico
+  (accion)="guardar()">  Se define en ts donde se llame
+</app-boton>
+ -->
