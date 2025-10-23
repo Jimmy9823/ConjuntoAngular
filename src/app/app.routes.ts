@@ -7,6 +7,7 @@ import { Error404 } from './core/error-paginas/error-404/error-404';
 import { Login } from './auth/login/login';
 import { Registro } from './auth/registro/registro';
 
+
 export const routes: Routes = [
     {path: '', component: Inicio},
     {path: 'administrador', component: Administrador},

@@ -1,1 +1,110 @@
+:root {
+  --primary-color: #198754;
+  --secondary-color: #157347;
+  --color-blanco: #f8f9fa;
+  --color-negro: #212529;
+  --color-gris: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 3rem;
+}
+
+/* ==== EFECTOS GLASS ==== */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* ==== SOMBRAS ELEGANTES ==== */
+.elegant-shadow {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ==== BORDES ORGÁNICOS ==== */
+.organic-border {
+  border-radius: 2rem 1rem 2rem 1rem !important;
+
+}
+
+
+
+/* ==== HOVER EN TARJETAS ==== */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 2rem 1rem 2rem 1rem;
+
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ==== ICONOS ==== */
+.icon-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+}
+
+/* ==== BADGES ==== */
+.badge-custom {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* ==== ANIMACIÓN FADE ==== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== Diseño de banner verde ==== */
+.card-organic {
+  border: none;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #059669, #16a34a, #22c55e);
+  color: var(--color-blanco);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 2rem 1rem 2rem 1rem;
+
+  
+  
+}
+
+.card-organic .card-body {
+  position: relative;
+  padding: 2rem;
+
+}
+
+.burbuja {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: var(--color-gris);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
 

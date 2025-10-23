@@ -1,20 +1,36 @@
 <button
-  class="{{ tipo }}"
+  [ngClass]="clases"
   [disabled]="disabled"
   (click)="ejecutarAccion()"
   [ngStyle]="estilo"
 >
-  <i *ngIf="icono" [class]="icono" style="margin-right: 6px;"></i>
+  <i *ngIf="icono" [class]="icono" style="margin-right: 8px;"></i>
   {{ label }}
 </button>
 
-<!--
-Se declara asi:  
+<!-- Secciones de ejemplo de uso:
+ Verde con gradiente 
 <app-boton
-  label="Guardar cambios"  Nombre del boton
-  tipo="btn btn-success"  Tipo de bootstrap o clase en CSS
-  icono="fa-solid fa-floppy-disk" Icono de font Awesome
-  [estilo]="{ 'padding': '10px 16px', 'font-size': '16px' }" Estilo unico
-  (accion)="guardar()">  Se define en ts donde se llame
-</app-boton>
- -->
+  label="Portal Residentes"
+  icono="fa-solid fa-right-to-bracket"
+  tipo="primario"
+  [estilo]="{ 'width': '100%', 'font-size': '18px' }"
+  (accion)="verPortal()"
+></app-boton>
+
+ Blanco con texto verde 
+<app-boton
+  label="Ver Avisos"
+  icono="fa-regular fa-bell"
+  tipo="secundario"
+  (accion)="verAvisos()"
+></app-boton>
+
+ Transparente efecto vidrio 
+<app-boton
+  label="Más Información"
+  icono="fa-solid fa-circle-info"
+  tipo="transparente"
+  (accion)="verMas()"
+></app-boton>
+-->

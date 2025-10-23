@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Imports_ } from '../../shared/imports';
+import { Boton } from '../../shared/boton/boton';
 
 interface InfoContacto {
   icon: string;
@@ -9,7 +10,7 @@ interface InfoContacto {
 
 @Component({
   selector: 'app-necesitas-ayuda',
-  imports: [Imports_],
+  imports: [Imports_,Boton],
   templateUrl: './necesitas-ayuda.html',
   styleUrl: './necesitas-ayuda.css'
 })

@@ -1,37 +1,56 @@
-<div class="card">
-  <div *ngIf="imagen" class="card-img">
-    <img [src]="imagen" alt="imagen-card" />
-    <span class="badge" *ngIf="extraInfo">{{ extraInfo }}</span>
+<div
+  class="card border-0 organic-border overflow-hidden card-hover shadow"
+  [ngStyle]="{ 'background': gradientFondo, 'border': borderColor }"
+>
+  <!-- Imagen y etiqueta -->
+  <div class="position-relative">
+    <img
+      [src]="imagen"
+      alt="Propiedad"
+      class="property-img w-100"
+      style="height: 200px; object-fit: cover;"
+    />
+    <span
+      class="badge position-absolute top-0 end-0 m-3 organic-border px-3 py-2 fw-bold"
+      [ngClass]="badgeClass"
+    >
+      {{ estado }}
+    </span>
   </div>
 
+  <!-- Contenido -->
   <div class="card-body">
-    <h3>{{ titulo }}</h3>
-    <h4 *ngIf="subtitulo">{{ subtitulo }}</h4>
-    <p *ngIf="descripcion">{{ descripcion }}</p>
+    <h4 class="h5 fw-black text-black mb-2">{{ titulo }}</h4>
+    <p class="text-muted mb-3">{{ descripcion }}</p>
 
-    <div class="precio-rating" *ngIf="precio || rating">
-      <span class="precio" *ngIf="precio">{{ precio }}</span>
-      <div class="rating" *ngIf="rating">
-        <fa-icon
-          *ngFor="let i of [].constructor(5); let idx = index"
-          [icon]="idx < rating ? 'star' : 'star-half'"
-          class="estrella"
-        ></fa-icon>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <p class="h4 fw-black text-black mb-0">
+        {{ precio }}<span class="fs-6 fw-normal">/mes</span>
+      </p>
+      <div class="text-warning">
+        <i
+          *ngFor="let star of [].constructor(estrellas)"
+          class="fas fa-star"
+        ></i>
       </div>
     </div>
 
-    <div class="iconos" *ngIf="iconos.length > 0">
-      <fa-icon *ngFor="let icono of iconos" [icon]="icono"></fa-icon>
+    <div class="d-flex align-items-center text-muted mb-3">
+      <i class="fas fa-user-circle me-2"></i>
+      <span class="small">{{ contacto }}</span>
     </div>
 
     <button
-      *ngIf="mostrarBoton"
-      class="btn-ver"
-      (click)="emitirAccion()">
-      {{ textoBoton }}
+      class="btn-organic w-100 fw-bold organic-border"
+      [ngClass]="botonClass"
+      (click)="verDetalles()"
+    >
+      {{ botonTexto }}
     </button>
   </div>
 </div>
+
+
 
 <!-- 
 <app-card

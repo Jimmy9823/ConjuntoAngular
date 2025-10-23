@@ -1,16 +1,59 @@
-button {
-  background-color: #10b981; /* verde principal */
-  color: white;
-  font-weight: 600;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 50px 0 50px 50px; /* forma asimétrica tipo píldora */
-  cursor: pointer;
+.btn-organic {
+  border-radius: 2rem;
+  padding: 12px 24px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  width: auto;
+  border-radius: 2rem 1rem 2rem 1rem !important;
 }
 
-button:hover {
-  transform: scale(1.1);
-  background-color: #0e9f6e; /* tono más oscuro */
+.btn-organic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  opacity: 0.95;
+}
+
+.btn-organic:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Botón 1: Primario (verde Alameda) */
+.btn-primario {
+  background: linear-gradient(135deg, #059669, #16a34a, #22c55e);
+  color: var(--color-blanco);
+
+}
+
+/* Botón 2: Secundario (blanco con texto verde) */
+.btn-secundario {
+  background: #ffffff;
+  color: #16a34a;
+}
+
+
+
+/* Botón 3: Transparente / Glass effect */
+.btn-transparente {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.btn-venta {
+  background: #28a745;
+  color: #fff;
+}
+
+.btn-arriendo {
+  background: #007bff;
+  color: #fff;
 }

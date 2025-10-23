@@ -9,24 +9,39 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
   templateUrl: './card.html',
   styleUrl: './card.css'
 })
-export class Card {
-  @Input() titulo: string = ''
-  @Input() subtitulo: string = ''
-  @Input() descripcion: string = ''
-  @Input() imagen: string = ''
-  @Input() precio: string = ''
-  @Input() extraInfo: string = ''
+export class Card { 
+@Input() imagen!: string;
+  @Input() titulo!: string;
+  @Input() descripcion!: string;
+  @Input() precio!: string;
+  @Input() estado!: string; // "VENTA" o "ARRIENDO"
+  @Input() estrellas: number = 0;
+  @Input() contacto!: string;
+  @Input() botonTexto: string = 'Ver Detalles';
 
-  // --- Íconos opcionales (ej. rating o usuario) ---
-  @Input() iconos: IconDefinition[] = []
-  @Input() rating: number | null = null // ejemplo: 4 -> 4 estrellas llenas
+  get badgeClass() {
+    return this.estado === 'VENTA'
+      ? 'bg-success text-white'
+      : 'bg-primary text-white';
+  }
 
-  // --- Botón configurable ---
-  @Input() mostrarBoton: boolean = true
-  @Input() textoBoton: string = 'Ver Detalles'
-  @Output() clickBoton = new EventEmitter<void>()
+  get borderColor() {
+    return this.estado === 'VENTA'
+      ? '2px solid #a7f3d0'
+      : '2px solid #bfdbfe';
+  }
 
-  emitirAccion(): void {
-    this.clickBoton.emit()
+  get gradientFondo() {
+    return this.estado === 'VENTA'
+      ? 'linear-gradient(135deg, #f0fdf4, #ecfdf5)'
+      : 'linear-gradient(135deg, #eff6ff, #dbeafe)';
+  }
+
+  get botonClass() {
+    return this.estado === 'VENTA' ? 'btn-venta' : 'btn-arriendo';
+  }
+
+  verDetalles() {
+    console.log(`Detalles de ${this.titulo}`);
   }
 }

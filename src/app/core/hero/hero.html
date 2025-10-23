@@ -5,23 +5,27 @@
   <div class="container mx-auto px-6 text-center relative z-10">
     <div class="floating max-w-5xl mx-auto">
       <h2 class="text-7xl font-black mb-8 fade-in-up leading-tight">
-        Bienvenidos a<br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-200 via-emerald-300 to-green-100">Casa</span>
+        Bienvenidos a <br/>
+        Casa
       </h2>
       <p class="text-2xl mb-12 max-w-4xl mx-auto opacity-95 fade-in-up font-light leading-relaxed">
         Disfruta de la mejor calidad de vida en un ambiente seguro, moderno y lleno de comodidades
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-6 fade-in-up">
-        <button 
-          (click)="onPortalClick()"
-          class="bg-white text-emerald-700 px-10 py-5 organic-border font-bold text-lg hover:bg-emerald-50 transition-all duration-300 shadow-2xl hover:scale-105">
-          <i class="fas fa-sign-in-alt mr-3"></i>Portal Residentes
-        </button>
-        <button 
-          (click)="onPropiedadesClick()"
-          class="glass-effect text-white px-10 py-5 organic-border font-bold text-lg hover:bg-white/20 transition-all duration-300 border-2 border-white/30">
-          <i class="fas fa-home mr-3"></i>Ver Propiedades
-        </button>
+        <app-boton
+          label="Portal Residentes"
+          icono="fa-solid fa-right-to-bracket"
+          tipo="primario"
+          [estilo]="{ 'width': '100%' , 'font-size': '18px', 'padding': '18px 38px' }"
+          (accion)="onPortalClick()"
+        ></app-boton>
+        <app-boton
+          label="Ver Propiedades"
+          icono="fa-solid fa-home"
+          tipo="secundario"
+          [estilo]="{ 'width': '100%', 'font-size': '18px', 'padding': '18px 38px' }"
+          (accion)="onPropiedadesClick()"
+        ></app-boton>
       </div>
     </div>
   </div>

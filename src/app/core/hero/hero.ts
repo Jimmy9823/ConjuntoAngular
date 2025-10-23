@@ -1,8 +1,10 @@
 import { Component, HostListener } from '@angular/core';
+import { Boton } from '../../shared/boton/boton';
+
 
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [Boton],
   templateUrl: './hero.html',
   styleUrl: './hero.css'
 })

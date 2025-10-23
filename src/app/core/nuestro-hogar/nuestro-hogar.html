@@ -1,1 +1,43 @@
-<p>nuestro-hogar works!</p>
+<section class="mb-5 fade-in-up">
+  <div class=" elegant-shadow overflow-hidden card-hover organic-border">
+    <div class="position-relative" style="height: 300px;">
+      <img
+        src="https://www.bienesonline.com/colombia/photos/vendo-apartamento-porvenir-1-bosa-APV1962921662419966-892.jpg"
+        alt="Vista del conjunto"
+        class="w-100 h-100 object-fit-cover"
+      />
+      <div class="position-absolute bottom-0 start-0 end-0 p-4 gradiente-negro">
+        <h4 class="text-white h4 fw-black mb-1">Nuestro Hogar</h4>
+        <p class="text-white mb-0">Espacios diseñados para vivir mejor</p>
+      </div>
+    </div>
+
+    <div class="card-body p-4 text-center">
+      <div class="row g-3 mb-3">
+        <div class="col-6">
+          <div class="p-3 organic-border   mb-2 bg-emerald-100">
+            <i class="fas fa-building text-success fs-3"></i>
+          </div>
+          <p class="fw-bold mb-0">3 Torres</p>
+          <p class="text-muted small mb-0">Modernas</p>
+        </div>
+
+        <div class="col-6">
+          <div class="p-3 organic-border bg-emerald-100 mb-2">
+            <i class="fas fa-home text-success fs-3"></i>
+          </div>
+          <p class="fw-bold mb-0">120 Apartamentos</p>
+          <p class="text-muted small mb-0">Cómodos</p>
+        </div>
+      </div>
+
+      <app-boton
+        label="Ver Galería Completa"
+        icono="fa-solid fa-images"
+        tipo="organic"
+        [estilo]="{ 'width': '100%', 'font-size': '15px' }"
+        (accion)="verGaleria()"
+      ></app-boton>
+    </div>
+  </div>
+</section>
