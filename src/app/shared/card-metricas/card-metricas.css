@@ -1,0 +1,8 @@
+.value-circle {
+  width: 55px;
+  height: 55px;
+  border: 3px solid var(--color-gris-oscuro);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  background: var(--color-blanco);
+}

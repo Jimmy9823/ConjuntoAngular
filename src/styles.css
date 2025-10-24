@@ -108,3 +108,11 @@ body {
   transform: translate(30%, -30%);
 }
 
+.card-secundary {
+  border: none;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0); cursor: pointer;  
+  color: var(--color-negro);
+}

@@ -1,0 +1,31 @@
+body {
+  min-height: 100vh;
+  color: var(--color-blanco);
+  
+
+}
+
+.modern-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.text-dark { color: #1f2937; }
+.text-gray { color: #6b7280; }
+.gradient-primary { background: linear-gradient(135deg, #059669, #16a34a, #22c55e); }
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
