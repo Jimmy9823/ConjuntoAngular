@@ -6,6 +6,7 @@ import { Vigilante } from './paginas/vigilante/vigilante';
 import { Error404 } from './core/error-paginas/error-404/error-404';
 import { Login } from './auth/login/login';
 import { Registro } from './auth/registro/registro';
+import { ListarApartamentos } from './modulos/apartamentos/listar-apartamentos/listar-apartamentos';
 
 
 export const routes: Routes = [
@@ -15,5 +16,6 @@ export const routes: Routes = [
     {path: 'vigilante', component: Vigilante},
     {path: 'login', component: Login},
     {path: 'registro', component: Registro},
+    {path: 'apartamentos/listar', component: ListarApartamentos},
     {path: '**', component: Error404 }
 ];
