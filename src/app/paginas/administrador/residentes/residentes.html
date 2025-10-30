@@ -1,0 +1,74 @@
+<body class="bg-gradient-to-r from-green-500 to-green-700">
+
+
+    <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+
+        <!-- Encabezado -->
+        
+
+        <app-headed
+  titulo="Gestión de Residentes"
+  descripcion="Administra los residentes del conjunto residencial."
+  icon="users"
+  [mostrarBoton]="true"
+  nombreBoton="Nuevo Residente"
+  tipoBoton="secundario"
+  (accionBoton)="registrarResidente()"
+></app-headed>
+
+
+        <!-- Tarjetas de estadísticas -->
+        <div class="container py-4">
+  <div class="row gy-3">
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="users"
+        title="Total Residentes"
+        value="100"
+        iconBg="#dbeafe"
+        iconColor="#2563eb"
+      ></app-card-metricas>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="user-check"
+        title="Propietarios"
+        value="89"
+        iconBg="#dcfce7"
+        iconColor="#16a34a"
+      ></app-card-metricas>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="home"
+        title="Arrendatarios"
+        value="11"
+        iconBg="#fef9c3"
+        iconColor="#eab308"
+      ></app-card-metricas>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="building"
+        title="Apts. Ocupados"
+        value="90"
+        iconBg="#ede9fe"
+        iconColor="#7c3aed"
+      ></app-card-metricas>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+       
+
+
+    </main>
+</body>

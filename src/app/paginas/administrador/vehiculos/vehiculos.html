@@ -1,0 +1,74 @@
+<body class="bg-gradient-to-r from-green-500 to-green-700">
+
+
+    <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+
+        <!-- Encabezado -->
+        
+
+        <app-headed
+  titulo="Gestión de Vehículos"
+  descripcion="Administra los vehículos registrados de los residentes con control de acceso y seguridad."
+  icon="car"
+  [mostrarBoton]="true"
+  nombreBoton="Registrar Vehículo"
+  tipoBoton="secundario"
+  (accionBoton)="registrarVehiculo()"
+></app-headed>
+
+
+        <!-- Tarjetas de estadísticas -->
+        <div class="container py-4">
+  <div class="row gy-3">
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="car"
+        title="Total Vehículos"
+        value="5"
+        iconBg="#dbeafe"
+        iconColor="#2563eb"
+      ></app-card-metricas>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="car-side"
+        title="Automóviles"
+        value="2"
+        iconBg="#dcfce7"
+        iconColor="#16a34a"
+      ></app-card-metricas>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="motorcycle"
+        title="Motocicletas"
+        value="2"
+        iconBg="#fef9c3"
+        iconColor="#eab308"
+      ></app-card-metricas>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="check-circle"
+        title="Activos"
+        value="4"
+        iconBg="#ede9fe"
+        iconColor="#7c3aed"
+      ></app-card-metricas>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+       
+
+
+    </main>
+</body>

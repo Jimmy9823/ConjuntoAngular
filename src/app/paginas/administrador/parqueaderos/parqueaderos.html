@@ -1,0 +1,74 @@
+<body class="bg-gradient-to-r from-green-500 to-green-700">
+
+
+    <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+
+        <!-- Encabezado -->
+        
+
+        <app-headed
+  titulo="Gestión de Parqueaderos"
+  descripcion="Administra los espacios de parqueadero del conjunto con disponibilidad en tiempo real."
+  icon="parking"
+  [mostrarBoton]="true"
+  nombreBoton="Nuevo Espacio"
+  tipoBoton="secundario"
+  (accionBoton)="registrarParqueadero()"
+></app-headed>
+
+
+        <!-- Tarjetas de estadísticas -->
+        <div class="container py-4">
+  <div class="row gy-3">
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="parking"
+        title="Total Espacios"
+        value="100"
+        iconBg="#dbeafe"
+        iconColor="#2563eb"
+      ></app-card-metricas>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="car"
+        title="Ocupados"
+        value="89"
+        iconBg="#dcfce7"
+        iconColor="#16a34a"
+      ></app-card-metricas>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="check-circle"
+        title="Disponibles"
+        value="11"
+        iconBg="#fef9c3"
+        iconColor="#eab308"
+      ></app-card-metricas>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <app-card-metricas
+        icon="motorcycle"
+        title="Motocicletas"
+        value="40"
+        iconBg="#ede9fe"
+        iconColor="#7c3aed"
+      ></app-card-metricas>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+       
+
+
+    </main>
+</body>

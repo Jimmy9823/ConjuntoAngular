@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {  CardMetricasComponent } from "../../shared/card-metricas/card-metricas";
-import { Boton } from '../../shared/boton/boton';
 import { Menu } from '../../core/menu/menu';
+import { Headed } from '../../shared/headed/headed';
+import { CardMetricasMain } from "../../shared/card-metricas-main/card-metricas-main";
 
 @Component({
   selector: 'app-administrador',
-  imports: [CardMetricasComponent, CardMetricasComponent,Menu],
+  imports: [ Menu, Headed, CardMetricasMain],
   templateUrl: './administrador.html',
   styleUrl: './administrador.css'
 })

@@ -1,0 +1,44 @@
+<body class="bg-gradient-to-r from-green-500 to-green-700">
+
+
+    <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+
+        <!-- Encabezado -->
+        <app-headed icon="building" 
+            titulo="Gestión de Apartamentos"
+            descripcion="Administra y supervisa el estado de los apartamentos en el conjunto residencial."
+            [mostrarBoton]="true" 
+            nombreBoton="Registrar Apartamento"    
+            tipoBoton="secundario"
+            (accionBoton)="registrarApartamento()">
+        </app-headed>
+
+        <!-- Métricas de Apartamentos-->
+
+        <div class="row g-4 pb-5">
+            <div class="col-6 col-lg-3">
+                <app-card-metricas icon="home" title="Total Apartamentos" value="24" subtitle="📈 +2 este mes"
+                    color="#4F46E5" customClass="glass-effect"></app-card-metricas>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <app-card-metricas icon="users" title="Ocupados" value="18" subtitle="🏠 75% ocupación" color="#22C55E"
+                    customClass="glass-effect   "></app-card-metricas>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <app-card-metricas icon="key" title="Disponibles" value="6" subtitle="✅ Listos para ocupar"
+                    color="#FACC15" customClass="glass-effect"></app-card-metricas>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <app-card-metricas icon="tools" title="En Mantenimiento" value="2" subtitle="🔧 En proceso"
+                    color="#F97316" customClass="glass-effect"></app-card-metricas>
+            </div>
+        </div>
+
+
+
+
+    </main>
+</body>

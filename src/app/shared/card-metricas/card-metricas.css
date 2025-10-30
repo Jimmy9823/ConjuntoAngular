@@ -1,8 +1,13 @@
-.value-circle {
-  width: 55px;
-  height: 55px;
-  border: 3px solid var(--color-gris-oscuro);
-  border-radius: 50%;
-  font-size: 1.2rem;
-  background: var(--color-blanco);
+.metric-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  min-height: 100px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
 }
+

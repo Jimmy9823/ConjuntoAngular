@@ -1,18 +1,14 @@
-<div class="p-4 glass-effect organic-border card-hover text-white d-flex justify-content-between align-items-center">
-  <!-- Izquierda: Ícono + título/subtítulo -->
-  <div class="d-flex align-items-center gap-3">
-    <i class="fas fa-{{ icon }} fs-2"></i>
-    <div>
-      <p class="fw-black mb-1">{{ title }}</p>
-      <p class="small mb-0 text-white-50">{{ subtitle }}</p>
+<div class="metric-card organic-border p-3 rounded d-flex align-items-center justify-content-between mb-3">
+  <!-- Izquierda -->
+  <div class="d-flex align-items-center">
+    <!-- Fondo de ícono configurable -->
+    <div class="icon-box me-3" [ngStyle]="{ 'background-color': iconBg || '#e5e7eb' }">
+      <i class="fas fa-{{ icon }}" [ngStyle]="{ color: iconColor || '#555' }"></i>
     </div>
-  </div>
 
-  <!-- Derecha: valor en círculo -->
-  <div
-    class="value-circle fw-bold d-flex align-items-center justify-content-center"
-    [ngStyle]="{ 'border-color': color, 'color': color }"
-  >
-    {{ value }}
+    <div>
+      <p class="mb-0 fw-semibold text-secondary">{{ title }}</p>
+      <h4 class="fw-bold mb-0 text-dark">{{ value }}</h4>
+    </div>
   </div>
 </div>

@@ -9,9 +9,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./card-metricas.css']
 })
 export class CardMetricasComponent {
-  @Input() icon!: string;
-  @Input() title!: string;
-  @Input() subtitle!: string;
-  @Input() value!: string | number;
-  @Input() color: string = '#4ade80';
+  @Input() icon: string = '';
+  @Input() title: string = '';
+  @Input() value: string | number = '';
+  @Input() iconColor?: string;
+  @Input() iconBg?: string;
+  @Input() customClass?: string;
 }

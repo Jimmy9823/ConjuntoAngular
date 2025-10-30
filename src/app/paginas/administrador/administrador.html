@@ -1,98 +1,76 @@
 <body class="bg-gradient-to-r from-green-500 to-green-700">
 
 
-<main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+  <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
 
-  <!-- Encabezado -->
-  <div class="text-center mb-12">
-    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-pulse">
-      <i class="fas fa-buildings"></i> Dashboard del Administrador
-    </h1>
-    <p class="text-xl text-white/80 max-w-3xl mx-auto">
-      Bienvenido al panel de control del conjunto. Gestiona todo desde un solo lugar.
-    </p>
-  </div>
+    <!-- Encabezado -->
+    
+
+    <div class="text-center mb-12 row g-4 mb-5">
+      <h1 class=" text-4xl md:text-5xl font-bold text-white mb-4 ">
+        <i class="fas fa-user mb-2"></i>
+        Panel de Administrador
+      </h1>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">
+        Gestiona y supervisa todas las operaciones del conjunto residencial desde este panel centralizado.
+      </p>
+      
+       
+    </div>
 
     <!-- Tarjetas de estadísticas -->
     <div class="row g-4 pb-5">
-  <div class="col-6 col-lg-3">
-    <app-card-metricas
-      icon="users"
-      title="Total Residentes"
-      subtitle="+3 este mes"
-      value="142"
-      color="#949688"
-    ></app-card-metricas>
-  </div>
+  <div class="col-12 col-md-6 col-lg-3">
+        <app-card-metricas-main icon="users" title="Total Residentes" subtitle="+3 este mes" value="142"
+          color="#949688" customClass="glass-effect"></app-card-metricas-main>
+      </div>
 
-  <div class="col-6 col-lg-3">
-    <app-card-metricas
-      icon="building"
-      title="Aptos Ocupados"
-      subtitle="95% ocupación"
-      value="89"
-      color="#4ade80"
-    ></app-card-metricas>
-  </div>
+  <div class="col-12 col-md-6 col-lg-3">
+        <app-card-metricas-main icon="building" title="Aptos Ocupados" subtitle="95% ocupación" value="89"
+          color="#4ade80" customClass="glass-effect"></app-card-metricas-main>
+      </div>
 
-  <div class="col-6 col-lg-3">
-    <app-card-metricas
-      icon="car"
-      title="Vehículos"
-      subtitle="+2 nuevos"
-      value="67"
-      color="#facc15"
-    ></app-card-metricas>
-  </div>
+  <div class="col-12 col-md-6 col-lg-3">
+        <app-card-metricas-main icon="car" title="Vehículos" subtitle="+2 nuevos" value="67"
+          color="#facc15" customClass="glass-effect"></app-card-metricas-main>
+      </div>
 
-  <div class="col-6 col-lg-3">
-    <app-card-metricas
-      icon="parking"
-      title="Parqueaderos"
-      subtitle="Disponibles"
-      value="23"
-      color="#c084fc"
-    ></app-card-metricas>
-  </div>
-</div>
-
-<!-- Bienvenida y accesos rápidos -->
- <div class="row g-4 mb-5">
-    <!--<div class="col-xl-8">-->
-    <!-- Bienvenida -->
-  <div class="modern-card mb-12 text-center organic-border p-8">
-    <div class="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 animate-float">
-      <i class="fas fa-crown text-white text-2xl"></i>
+  <div class="col-12 col-md-6 col-lg-3">
+        <app-card-metricas-main icon="parking" title="Parqueaderos" subtitle="Disponibles" value="23"
+          color="#c084fc" customClass="glass-effect"></app-card-metricas-main>
+      </div>
     </div>
-    <h2 class="text-3xl font-bold text-dark mb-4">
-      ¡Bienvenido al Sistema del Conjunto Residencial!
-    </h2>
-    <p class="text-lg text-gray max-w-3xl mx-auto leading-relaxed">
-      Has iniciado sesión exitosamente como administrador. Desde aquí puedes gestionar residentes,
-      apartamentos, torres, vehículos, parqueaderos y más.
-    </p>
-  </div>
+
+    <!-- Bienvenida y accesos rápidos -->
+    <div class="row g-4 mb-5">
+
+      <!-- Bienvenida al administrador-->
+      <div class="modern-card mb-12 text-center organic-border p-8">
+        <div
+          class="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 animate-float">
+          <i class="fas fa-crown text-white text-2xl"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-dark mb-4">
+          ¡Bienvenido al Sistema del Conjunto Residencial!
+        </h2>
+        <p class="text-lg text-gray max-w-3xl mx-auto leading-relaxed">
+          Has iniciado sesión exitosamente como administrador. Desde aquí puedes gestionar residentes,
+          apartamentos, torres, vehículos, parqueaderos y más.
+        </p>
+      </div>
+
     </div>
-        <!--<div class="col-xl-4">-->
-
-    <!-- Accesos rápidos -->
 
 
-<!-- Grid de funcionalidades modernizado -->
+
+    <!-- Menú de navegación -->
     <app-menu></app-menu>
 
-                    
+
+    <!-- Cards de funcionalidades -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    </div>
 
 
-  
-
-  
-
-  <!-- Cards de funcionalidades -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    
-  </div>
-
-  <!-- Accesos rápidos -->
-
-</main>
+  </main>
