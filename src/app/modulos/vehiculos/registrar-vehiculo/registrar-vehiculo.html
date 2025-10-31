@@ -1,0 +1,11 @@
+<app-modals
+  [titulo]="'Registrar Vehículo'"
+  [visible]="visible"
+  (cerrar)="cerrarModal()">
+
+  <app-form
+    [fields]="camposVehiculo"
+    (submitForm)="guardarVehiculo($event)">
+  </app-form>
+
+</app-modals>

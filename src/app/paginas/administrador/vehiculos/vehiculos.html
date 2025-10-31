@@ -13,8 +13,13 @@
   [mostrarBoton]="true"
   nombreBoton="Registrar Vehículo"
   tipoBoton="secundario"
-  (accionBoton)="registrarVehiculo()"
+  (accionBoton)="abrirRegistrarVehiculo()"
 ></app-headed>
+
+<!-- Aquí se inserta el modal -->
+<app-registrar-vehiculo
+  (registrar)="onRegistrarVehiculo($event)">
+</app-registrar-vehiculo>
 
 
         <!-- Tarjetas de estadísticas -->

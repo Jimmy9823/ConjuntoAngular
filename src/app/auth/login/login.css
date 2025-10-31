@@ -1,0 +1,46 @@
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #059669, #16a34a, #22c55e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-login {
+  width: 380px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: #fff;
+  color: #212529;
+}
+
+.card-header {
+  color: var(--color-blanco);
+  padding: 2rem 1rem;
+  border-bottom: none;
+}
+
+.icon-wrapper {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control {
+  border-radius: 0.75rem;
+}
+
+.btn-success {
+  background: var(--primary-color);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}

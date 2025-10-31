@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 import { Imports_ } from '../imports';
 import { Boton } from '../boton/boton';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -12,7 +12,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class Form {
   @Input() fields: any[] = [];
- @Output() submitForm = new EventEmitter<any>();
+  @Output() submitForm = new EventEmitter<any>();
   formGroup!: FormGroup;
 
   ngOnInit() {
@@ -24,6 +24,8 @@ export class Form {
   }
 
   onSubmit() {
-    this.submitForm.emit(this.formGroup.value);
+    if (this.formGroup.valid) {
+      this.submitForm.emit(this.formGroup.value);
+    }
   }
 }
