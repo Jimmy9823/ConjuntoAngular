@@ -11,16 +11,18 @@ import { Vehiculos } from './paginas/administrador/vehiculos/vehiculos';
 import { Residentes } from './paginas/administrador/residentes/residentes';
 import { Torres } from './paginas/administrador/torres/torres';
 import { Parqueaderos } from './paginas/administrador/parqueaderos/parqueaderos';
+import { RegistroComponent } from './modulos/usuarios/auth-usuarios/auth-usuarios';
 
 
 
 export const routes: Routes = [
     {path: '', component: Inicio},
     {path: 'administrador', component: Administrador},
+    {path: 'registro', component: RegistroComponent},
     {path: 'residente', component: Residente},
     {path: 'vigilante', component: Vigilante},
     {path: 'login', component: Login},
-    {path: 'registro', component: Registro},
+    // {path: 'registro', component: Registro},
     {path: 'apartamentos', component: Apartamentos},
     {path: 'vehiculos', component: Vehiculos},
     {path: 'residentes', component: Residentes},
