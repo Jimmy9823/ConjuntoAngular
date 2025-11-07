@@ -1,112 +1,76 @@
-import { Component } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { FormsModule } from '@angular/forms'
-import { Router } from '@angular/router'
-import { Usuario } from '../modelos/usuario.model'
-import { Persona } from '../modelos/persona.model'
-import { UsuarioService } from '../servicios/usuario.service'
-import { PersonaService } from '../servicios/persona.service'
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsuarioService, UsuarioRegisterDto } from '../servicios/usuario.service';
+import { Form } from '../../../shared/form/form';
 
 @Component({
-  selector: 'app-registro',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
+  selector: 'app-auth-usuarios',
   templateUrl: './auth-usuarios.html',
-  styleUrls: ['./auth-usuarios.css']
+  styleUrls: ['./auth-usuarios.css'],
+  imports: [Form],
+  standalone: true
 })
-export class RegistroComponent {
-  usuario: Usuario = {
-    email: '',
-    passwordHash: '',
-    rolId: 1,
-    activo: true
+export class AuthUsuariosRegitro implements OnInit {
+
+  registerForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+  });
+
+  disableSubmit = true;
+
+  fields = [
+    { name: 'email', label: 'Correo electrónico', type: 'email', placeholder: 'correo@ejemplo.com' },
+    { name: 'password', label: 'Contraseña', type: 'password', placeholder: 'Mínimo 6 caracteres' }
+  ];
+
+  constructor(private usuarioService: UsuarioService) {}
+
+  ngOnInit() {
+    this.registerForm.statusChanges.subscribe(() => {
+      this.disableSubmit = !this.registerForm.valid;
+    });
   }
 
-  persona: Persona = {
-    numeroDocumento: '',
-    tipoDocumentoId: 1, // Por defecto CC
-    nombres: '',
-    apellidos: '',
-    telefono: ''
-  }
+  onSubmit(values: any) {
+    if (!this.registerForm.valid) return;
 
-  mensaje = ''
-  error = ''
-  cargando = false
+    const payload: UsuarioRegisterDto = {
+      email: values.email,
+      passwordHash: values.password, // backend espera passwordHash en register
+      rolId: 1
+    };
 
-  constructor(
-    private usuarioService: UsuarioService,
-    private personaService: PersonaService,
-    private router: Router
-  ) {}
+    // Log del payload (ya lo tenías)
+    console.log('📦 Enviando al backend (register):', payload);
 
-  registrar() {
-    this.mensaje = ''
-    this.error = ''
-    this.cargando = true
+    this.usuarioService.registrarUsuario(payload).subscribe({
+      next: (res) => {
+        // res es el JSON que ahora devuelve el backend (status/mensaje/email)
+        console.log('✅ Registro exitoso:', res);
 
-    if (!this.usuario.email || !this.usuario.passwordHash) {
-      this.error = 'Por favor, completa los campos de usuario.'
-      this.cargando = false
-      return
-    }
+        // --- Login automático ---
+        // IMPORTANTE: login debe enviar { email, password } (no passwordHash)
+        this.usuarioService.login(values.email, values.password).subscribe({
+          next: (resp) => {
+            console.log('✅ Inicio de sesión exitoso (login automático).');
+            console.log('🎫 Token recibido:', resp.token);
+            console.log('📧 Email en respuesta:', resp.email);
+            console.log('👤 Rol en respuesta:', resp.rol, ' idUsuario:', resp.idUsuario);
 
-    // 1️⃣ Verificar si correo está disponible
-    this.usuarioService.verificarCorreo(this.usuario.email).subscribe({
-      next: disponible => {
-        if (!disponible) {
-          this.error = 'El correo ya está registrado.'
-          this.cargando = false
-          return
-        }
-
-        // 2️⃣ Registrar usuario
-        this.usuarioService.registrarUsuario(this.usuario).subscribe({
-          next: () => {
-            // 3️⃣ Login automático
-            this.usuarioService
-              .login(this.usuario.email, this.usuario.passwordHash)
-              .subscribe({
-                next: loginResp => {
-                  this.usuarioService.guardarSesion(
-                    loginResp.token,
-                    loginResp.email,
-                    loginResp.rol,
-                    loginResp.idUsuario
-                  )
-
-                  // 4️⃣ Registrar persona con token guardado
-                  this.personaService.crearPersona(this.persona).subscribe({
-                    next: () => {
-                      this.mensaje = 'Registro completo ✅'
-                      this.cargando = false
-                      this.router.navigate(['/dashboard'])
-                    },
-                    error: err => {
-                      console.error('Error creando persona', err)
-                      this.error = 'Error al crear persona.'
-                      this.cargando = false
-                    }
-                  })
-                },
-                error: err => {
-                  console.error('Error login automático', err)
-                  this.error = 'Error al iniciar sesión automáticamente.'
-                  this.cargando = false
-                }
-              })
+            // Guardar sesión usando las keys corregidas
+            this.usuarioService.guardarSesion(resp.token, resp.email, resp.rol, resp.idUsuario);
           },
-          error: err => {
-            console.error('Error registrando usuario', err)
-            this.error = 'Error al registrar usuario.'
-            this.cargando = false
+          error: (err) => {
+            console.error('❌ Error en login automático:', err);
+            // Si recibes 401 aquí, revisar:
+            //  - Que el password haya sido correctamente guardado y/o hasheado
+            //  - Que usuarioService.crearUsuario() almacene correctamente la contraseña (hash)
+            //  - Que no haya retraso entre el commit DB y el intento de login (en raros casos, agregar pequeño setTimeout)
           }
-        })
+        });
       },
-      error: () => {
-        this.error = 'No se pudo verificar el correo.'
-        this.cargando = false
-      }
-    })
+      error: (err) => console.error('❌ Error en registro:', err)
+    });
   }
 }

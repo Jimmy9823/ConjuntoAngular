@@ -1,16 +1,10 @@
 <div class="container">
   <h2>Lista de Personas Registradas</h2>
-
-  <!-- Formulario de filtros -->
-  <div class="filtro-section">
-    <h4>Filtros de Búsqueda</h4>
-    <app-form
-      [fields]="fields"
-      [formGroup]="filtroForm"
-      [disableSubmit]="filtroForm.invalid || cargando"
-      (submitForm)="onSubmitFiltro($event)">
-    </app-form>
-  </div>
+  
+  <!-- Botón para cargar personas -->
+  <button (click)="cargarPersonas()" [disabled]="cargando" class="btn btn-primary">
+    {{ cargando ? 'Cargando...' : 'Cargar Personas' }}
+  </button>
 
   <!-- Mensajes de estado -->
   <div *ngIf="mensaje" [class]="esError ? 'mensaje error' : 'mensaje'">
@@ -30,12 +24,12 @@
     </app-tabla>
     
     <div class="estadisticas">
-      <p>Total de personas encontradas: {{ personas.length }}</p>
+      <p>Total de personas: {{ personas.length }}</p>
     </div>
   </div>
 
   <!-- Estado vacío -->
   <div *ngIf="personas.length === 0 && !cargando && !mensaje" class="estado-vacio">
-    <p>No hay personas registradas. Usa el formulario de filtro para buscar.</p>
+    <p>No hay personas registradas. Haz clic en "Cargar Personas" para ver los datos.</p>
   </div>
 </div>

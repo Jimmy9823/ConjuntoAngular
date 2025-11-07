@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Boton } from '../../shared/boton/boton';
 import { Form } from '../../shared/form/form';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -7,7 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [Form, Boton, ReactiveFormsModule],
+  imports: [Form, ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })

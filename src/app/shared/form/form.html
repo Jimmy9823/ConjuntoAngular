@@ -2,47 +2,59 @@
 
   <div class="row g-3">
     <div class="col-12 col-md-6" *ngFor="let field of fields">
-      
-      <!-- Label -->
+
       <label class="form-label fw-semibold">{{ field.label }}</label>
 
-      <!-- Input -->
-      <ng-container *ngIf="field.type === 'text' || field.type === 'email'">
-        <input [type]="field.type" [formControlName]="field.name" class="form-control">
+      <ng-container *ngIf="field.type === 'text' || field.type === 'email' || field.type === 'password'">
+        <input [type]="field.type" [formControlName]="field.name" class="form-control"
+               [attr.placeholder]="field.placeholder ?? ''">
       </ng-container>
 
-      <!-- Select -->
       <ng-container *ngIf="field.type === 'select'">
         <select [formControlName]="field.name" class="form-select">
-          <option value="" disabled selected>Seleccione una opción</option>
-          <option *ngFor="let option of field.options" [value]="option">{{ option }}</option>
+          <option value="" disabled>Seleccione una opción</option>
+          <option *ngFor="let option of field.options" [value]="option.value">
+            {{ option.text }}
+          </option>
         </select>
       </ng-container>
 
-      <!-- Radio -->
+       <ng-container *ngIf="field.type === 'date'">
+        <input type="date" [formControlName]="field.name" class="form-control"
+               [attr.placeholder]="field.placeholder ?? ''">
+      </ng-container>
+
       <ng-container *ngIf="field.type === 'radio'">
         <div class="d-flex flex-wrap gap-2">
           <div *ngFor="let option of field.options" class="form-check">
-            <input class="form-check-input" type="radio" [formControlName]="field.name" [value]="option">
-            <label class="form-check-label">{{ option }}</label>
+            <input class="form-check-input"
+                   type="radio"
+                   [formControlName]="field.name"
+                   [value]="option.value"
+                   [id]="field.name + '_' + option.value">
+            <label class="form-check-label" [for]="field.name + '_' + option.value">
+              {{ option.text }}
+            </label>
           </div>
         </div>
       </ng-container>
 
-      <!-- Textarea -->
       <ng-container *ngIf="field.type === 'textarea'">
         <textarea [formControlName]="field.name" rows="3" class="form-control"></textarea>
       </ng-container>
+
     </div>
   </div>
 
-  <!-- Botón -->
   <div class="text-end mt-4">
-    <app-boton 
-      [label]="'Enviar'" 
-      [tipo]="'primario'" 
-      (accion)="onSubmit()">
-    </app-boton>
-  </div>
+  <button
+    type="submit"
+    class="btn-organic btn-primario"
+    [disabled]="formGroup.invalid || disableSubmit"
+  >
+    <i class="fa fa-paper-plane"></i> Enviar
+  </button>
+</div>
+
 
 </form>

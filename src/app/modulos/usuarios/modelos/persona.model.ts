@@ -1,28 +1,28 @@
 export interface Persona {
-  id?: number; // Autogenerado por backend
+  id?: number;
 
-  // Campos obligatorios
+  // Campos principales (iguales al DTO)
   numeroDocumento: string;
   tipoDocumentoId: number;
   nombres: string;
   apellidos: string;
   telefono: string;
-
-  // Campos derivados o informativos
-  tipoDocumentoNombre?: string;
-  tipoDocumentoCodigo?: string;
-  nombreCompleto?: string;
-
+  
   // Campos opcionales
-  fechaNacimiento?: string; // ISO string o LocalDate del backend
-  edad?: number;
+  fechaNacimiento?: string;
   genero?: string;
   contactoEmergenciaNombre?: string;
   contactoEmergenciaTelefono?: string;
   fotoUrl?: string;
 
+  // Campos de respuesta (backend los completa)
+  tipoDocumentoNombre?: string;
+  tipoDocumentoCodigo?: string;
+  nombreCompleto?: string;
+  edad?: number;
+  
   // Auditoría
-  fechaCreacion?: string; // LocalDateTime -> string
+  fechaCreacion?: string;
   fechaActualizacion?: string;
   eliminado?: boolean;
 

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="header">
+    <h2>Crear Nueva Persona</h2>
+    <div class="button-group">
+      <button (click)="volverAlLogin()" class="btn btn-secondary">
+        ← Volver al Login
+      </button>
+      <button (click)="irAResidentes()" class="btn btn-info">
+        Ir a Residentes →
+      </button>
+    </div>
+  </div>
+
+  <!-- Mensajes de estado -->
+  <div *ngIf="mensaje" [class]="esError ? 'mensaje error' : 'mensaje'">
+    {{ mensaje }}
+  </div>
+
+  <!-- Información del token -->
+  <div *ngIf="!token" class="token-alert">
+    <p>⚠️ No se encontró token de autenticación. Debes iniciar sesión primero.</p>
+  </div>
+
+  <!-- Formulario de creación -->
+  <div class="form-container" *ngIf="token">
+    <app-form
+      [fields]="fields"
+      [formGroup]="personaForm"
+      [disableSubmit]="personaForm.invalid || cargando"
+      (submitForm)="onSubmit($event)">
+    </app-form>
+
+    <!-- Información de debug -->
+    <div class="debug-info" *ngIf="personaForm.value.numeroDocumento">
+      <h4>📊 Debug Info:</h4>
+      <p><strong>Token:</strong> {{ token ? 'Presente' : 'Faltante' }}</p>
+      <p><strong>Formulario válido:</strong> {{ personaForm.valid }}</p>
+      <p><strong>Campos llenos:</strong> {{ contarCamposLlenos() }}/{{ fields.length }}</p>
+      <p><strong>Fecha nacimiento:</strong> {{ personaForm.value.fechaNacimiento }}</p>
+      <details>
+        <summary>Ver datos del formulario</summary>
+        <pre>{{ personaForm.value | json }}</pre>
+      </details>
+    </div>
+  </div>
+</div>

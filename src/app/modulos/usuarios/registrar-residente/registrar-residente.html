@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="header">
+    <h2>Registrar Nuevo Residente</h2>
+    <div class="button-group">
+      <button (click)="volverALogin()" class="btn btn-secondary">
+        ← Volver al Login
+      </button>
+      <button (click)="irAListaResidentes()" class="btn btn-info">
+        Ver Residentes →
+      </button>
+      <button (click)="irACrearPersona()" class="btn btn-success">
+        ＋ Crear Persona
+      </button>
+    </div>
+  </div>
+
+  <!-- Mensajes de estado -->
+  <div *ngIf="mensaje" [class]="esError ? 'mensaje error' : 'mensaje'">
+    {{ mensaje }}
+  </div>
+
+  <!-- Información del token -->
+  <div *ngIf="!token" class="token-alert">
+    <p>⚠️ No se encontró token de autenticación. Debes iniciar sesión primero.</p>
+  </div>
+
+  <!-- Formulario de creación -->
+  <div class="form-container" *ngIf="token">
+    <div class="form-info">
+      <h4>📋 Información del Residente</h4>
+      <p>Complete la información para registrar a una persona como residente en un apartamento.</p>
+    </div>
+
+    <app-form
+      [fields]="fields"
+      [formGroup]="residenteForm"
+      [disableSubmit]="residenteForm.invalid || cargando"
+      (submitForm)="onSubmit($event)">
+    </app-form>
+
+    <!-- Información de debug -->
+    <div class="debug-info" *ngIf="residenteForm.value.personaId">
+      <h4>📊 Debug Info:</h4>
+      <p><strong>Token:</strong> {{ token ? 'Presente' : 'Faltante' }}</p>
+      <p><strong>Formulario válido:</strong> {{ residenteForm.valid }}</p>
+      <p><strong>Campos llenos:</strong> {{ contarCamposLlenos() }}/{{ fields.length }}</p>
+      <p><strong>Personas cargadas:</strong> {{ opciones.personas.length }}</p>
+      <details>
+        <summary>Ver datos del formulario</summary>
+        <pre>{{ residenteForm.value | json }}</pre>
+      </details>
+    </div>
+  </div>
+</div>
