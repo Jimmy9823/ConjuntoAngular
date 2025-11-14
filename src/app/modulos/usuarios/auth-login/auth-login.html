@@ -1,7 +1,25 @@
-<div class="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-  <div class="w-full max-w-sm bg-white shadow-lg rounded-2xl p-6">
-    <h2 class="text-2xl font-semibold text-center mb-6">Iniciar Sesión</h2>
+<body class="bg-gradient-to-r from-green-500 to-green-700">
 
+  <!-- BURBUJAS DECORATIVAS -->
+  
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+
+  <div class="modern-card glass-effect p-4 organic-border elegant-shadow" 
+       style="max-width: 450px; width: 100%;">
+
+    <!-- ICONO Y TÍTULO -->
+    <div class="text-center mb-4">
+      <div class="icon-box gradient-primary mx-auto mb-3">
+        <i class="fas fa-building fa-lg text-white"></i>
+      </div>
+
+      <h4 class="fw-bold text-dark">Bienvenido</h4>
+      <p class="text-gray mb-0">Accede a tu portal residencial</p>
+    </div>
+
+
+    <!-- FORMULARIO -->
     <app-form
       [formGroup]="loginForm"
       [fields]="fields"
@@ -9,12 +27,23 @@
       (submitForm)="onSubmit($event)">
     </app-form>
 
-    <p class="text-center text-sm text-gray-500 mt-4">
-      ¿No tienes cuenta?
-      <a routerLink="/register" class="text-green-600 hover:underline">
-        Regístrate aquí
+   
+
+    <!-- OLVIDÉ MI CONTRASEÑA -->
+    <div class="text-center mt-3">
+      <a routerLink="/recuperar" class="link-text small-link">
+        ¿Olvidaste tu contraseña?
       </a>
-    </p>
+    </div>
+
+    <!-- REGISTRO -->
+    <div class="text-center">
+      <p class="text-green "><strong>¿No tienes cuenta? </strong>
+        <a routerLink="/registro" class="text-gray link-text"> Regístrate aquí</a>
+      </p>
+    </div>
+
   </div>
 </div>
 
+</body>
