@@ -1,36 +1,64 @@
-<div class="container">
-  <div class="header">
-    <h2>Crear Nueva Persona</h2>
-    <div class="button-group">
-      <button (click)="volverAlLogin()" class="btn btn-secondary">
-        ← Volver al Login
-      </button>
-      <button (click)="irAResidentes()" class="btn btn-info">
-        Ir a Residentes →
-      </button>
-    </div>
-  </div>
 
-  <!-- Mensajes de estado -->
-  <div *ngIf="mensaje" [class]="esError ? 'mensaje error' : 'mensaje'">
-    {{ mensaje }}
-  </div>
 
-  <!-- Información del token -->
-  <div *ngIf="!token" class="token-alert">
-    <p>⚠️ No se encontró token de autenticación. Debes iniciar sesión primero.</p>
-  </div>
 
-  <!-- Formulario de creación -->
-  <div class="form-container" *ngIf="token">
-    <app-form
+<body class="bg-gradient-to-r from-green-500 to-green-700 burbuja-fondo">
+
+<div class="container d-flex justify-content-center align-items-start py-10">
+
+    <div class="modern-card glass-effect p-5 organic-border elegant-shadow" 
+         style="max-width: 800px; width: 100%;">
+
+      
+
+      <!-- BOTONES DE ACCIÓN -->
+      <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap pb-3">
+        <app-boton
+          label="← Volver al Login"
+          tipo="secundario"
+          (accion)="volverAlLogin()"
+        ></app-boton>
+        
+
+        
+
+        <app-boton
+          label="Ver Residentes →"
+          tipo="secundario"
+          (accion)="irAResidentes()"
+        ></app-boton>
+      </div>
+
+      <div class="separator mb-4 bg-white"></div>
+
+      <!-- HEADER ICONO Y TITULO -->
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-white h2 font-black">Crear Nueva Persona</h2>
+        <p class="text-white mb-0">
+          Complete la información para registrar a una persona como residente en un apartamento.
+        </p>
+      </div>
+
+      <!-- MENSAJES DE ESTADO -->
+      <div *ngIf="mensaje" class="glass-message mb-3">
+        {{ mensaje }}
+      </div>
+
+      <!-- ALERTA TOKEN -->
+      <div *ngIf="!token" class="glass-warning mb-3">
+        <p>⚠️ No se encontró token de autenticación. Debes iniciar sesión primero.</p>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="form-container" *ngIf="token">
+
+        <app-form
       [fields]="fields"
       [formGroup]="personaForm"
       [disableSubmit]="personaForm.invalid || cargando"
       (submitForm)="onSubmit($event)">
     </app-form>
 
-    <!-- Información de debug -->
+         <!-- Información de debug -->
     <div class="debug-info" *ngIf="personaForm.value.numeroDocumento">
       <h4>📊 Debug Info:</h4>
       <p><strong>Token:</strong> {{ token ? 'Presente' : 'Faltante' }}</p>
@@ -42,5 +70,11 @@
         <pre>{{ personaForm.value | json }}</pre>
       </details>
     </div>
+
+      </div>
+
+    </div>
+
   </div>
-</div>
+
+</body>

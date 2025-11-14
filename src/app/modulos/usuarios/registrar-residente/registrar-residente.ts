@@ -8,11 +8,12 @@ import { ResidenteService } from '../servicios/residente.service';
 import { PersonaService } from '../servicios/persona.service';
 import { Form } from '../../../shared/form/form';
 import {Residente, ResidenteFormData, OpcionesResidente } from '../modelos/residente.model';
+import { Boton } from '../../../shared/boton/boton';
 
 @Component({
 selector: 'app-registrar-residente',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, Form],
+  imports: [CommonModule, ReactiveFormsModule, Form,Boton],
   templateUrl: './registrar-residente.html',
   styleUrl: './registrar-residente.css'
 })

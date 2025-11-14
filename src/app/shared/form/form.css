@@ -120,3 +120,14 @@ app-boton:hover {
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
+/* Radio buttons estilo inline */
+.form-check {
+  display: inline-flex;       /* Horizontal */
+  align-items: center;
+  margin-right: 15px;
+}
+
+.form-check-input {
+  width: auto;
+  margin-right: 6px;
+}

@@ -38,25 +38,27 @@
       </ng-container>
 
       <!-- RADIO -->
-      <ng-container *ngIf="field.type === 'radio'">
-        <div class="d-flex flex-column gap-2">
-          <div *ngFor="let option of field.options" class="form-check">
-            <input 
-              class="form-check-input"
-              type="radio"
-              [formControlName]="field.name"
-              [value]="option.value"
-              [id]="field.name + '_' + option.value"
-            />
-            <label 
-              class="form-check-label"
-              [for]="field.name + '_' + option.value"
-            >
-              {{ option.text }}
-            </label>
-          </div>
-        </div>
-      </ng-container>
+      <!-- RADIO -->
+<ng-container *ngIf="field.type === 'radio'">
+  <div class="d-flex flex-wrap gap-3">
+    <div *ngFor="let option of field.options" class="form-check">
+      <input 
+        class="form-check-input"
+        type="radio"
+        [formControlName]="field.name"
+        [value]="option.value"
+        [id]="field.name + '_' + option.value"
+      />
+      <label 
+        class="form-check-label"
+        [for]="field.name + '_' + option.value"
+      >
+        {{ option.text }}
+      </label>
+    </div>
+  </div>
+</ng-container>
+
 
       <!-- TEXTAREA -->
       <ng-container *ngIf="field.type === 'textarea'">
