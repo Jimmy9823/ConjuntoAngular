@@ -150,14 +150,13 @@ body {
 
 
 .link-text {
-  color: var(--color-blanco);
-  text-decoration: none;
-  transition: 0.3s;
+  color: #6b7280; /* gris */
 }
+
 .link-text:hover {
-  color: var(--primary-color);
-  text-decoration: underline;
+  color: var(--color-negro);
 }
+
 
 .btn-outline-light {
   border: 1.5px solid rgba(255, 255, 255, 0.4);
@@ -169,4 +168,10 @@ body {
 
 .app-form label {
   color: var(--color-blanco) !important;
+}
+
+
+.text-green {
+  color: var(--secondary-color );
+
 }

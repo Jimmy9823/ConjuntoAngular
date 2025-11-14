@@ -1,60 +1,83 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="p-4 rounded shadow-sm bg-white">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
   <div class="row g-3">
-    <div class="col-12 col-md-6" *ngFor="let field of fields">
+    <div class="col-12" *ngFor="let field of fields">
 
       <label class="form-label fw-semibold">{{ field.label }}</label>
 
+      <!-- TEXT / EMAIL / PASSWORD -->
       <ng-container *ngIf="field.type === 'text' || field.type === 'email' || field.type === 'password'">
-        <input [type]="field.type" [formControlName]="field.name" class="form-control"
-               [attr.placeholder]="field.placeholder ?? ''">
+        <input 
+          [type]="field.type"
+          [formControlName]="field.name"
+          class="form-control"
+          [attr.placeholder]="field.placeholder ?? ''"
+        />
       </ng-container>
 
+      <!-- SELECT -->
       <ng-container *ngIf="field.type === 'select'">
         <select [formControlName]="field.name" class="form-select">
-          <option value="" disabled>Seleccione una opción</option>
-          <option *ngFor="let option of field.options" [value]="option.value">
+          <option value="" disabled selected>Seleccione una opción</option>
+          <option 
+            *ngFor="let option of field.options"
+            [value]="option.value"
+          >
             {{ option.text }}
           </option>
         </select>
       </ng-container>
 
-       <ng-container *ngIf="field.type === 'date'">
-        <input type="date" [formControlName]="field.name" class="form-control"
-               [attr.placeholder]="field.placeholder ?? ''">
+      <!-- DATE -->
+      <ng-container *ngIf="field.type === 'date'">
+        <input 
+          type="date"
+          [formControlName]="field.name"
+          class="form-control"
+        />
       </ng-container>
 
+      <!-- RADIO -->
       <ng-container *ngIf="field.type === 'radio'">
-        <div class="d-flex flex-wrap gap-2">
+        <div class="d-flex flex-column gap-2">
           <div *ngFor="let option of field.options" class="form-check">
-            <input class="form-check-input"
-                   type="radio"
-                   [formControlName]="field.name"
-                   [value]="option.value"
-                   [id]="field.name + '_' + option.value">
-            <label class="form-check-label" [for]="field.name + '_' + option.value">
+            <input 
+              class="form-check-input"
+              type="radio"
+              [formControlName]="field.name"
+              [value]="option.value"
+              [id]="field.name + '_' + option.value"
+            />
+            <label 
+              class="form-check-label"
+              [for]="field.name + '_' + option.value"
+            >
               {{ option.text }}
             </label>
           </div>
         </div>
       </ng-container>
 
+      <!-- TEXTAREA -->
       <ng-container *ngIf="field.type === 'textarea'">
-        <textarea [formControlName]="field.name" rows="3" class="form-control"></textarea>
+        <textarea 
+          [formControlName]="field.name"
+          rows="3"
+          class="form-control"
+        ></textarea>
       </ng-container>
 
     </div>
   </div>
 
   <div class="text-end mt-4">
-  <button
-    type="submit"
-    class="btn-organic btn-primario"
-    [disabled]="formGroup.invalid || disableSubmit"
-  >
-    <i class="fa fa-paper-plane"></i> Enviar
-  </button>
-</div>
-
+    <button
+      type="submit"
+      class="btn-organic btn-primario"
+      [disabled]="formGroup.invalid || disableSubmit"
+    >
+      <i class="fa fa-paper-plane"></i> Enviar
+    </button>
+  </div>
 
 </form>
