@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuarioService } from '../servicios/usuario.service';
 import { Form } from '../../../shared/form/form';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-login',
@@ -24,7 +25,7 @@ export class AuthLogin implements OnInit {
     { name: 'password', label: 'Contraseña', type: 'password', placeholder: 'Ingrese su contraseña' }
   ];
 
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private usuarioService: UsuarioService , private router:Router) {}
 
   ngOnInit() {
     this.loginForm.statusChanges.subscribe(() => {
@@ -48,9 +49,20 @@ export class AuthLogin implements OnInit {
         // Guardamos los datos en localStorage
         this.usuarioService.guardarSesion(resp.token, resp.email, resp.rol, resp.idUsuario);
 
-        // Aquí podrías redirigir al dashboard, por ejemplo:
-        // this.router.navigate(['/dashboard']);
-      },
+        if (resp.rol === 'USUARIO') {
+        this.router.navigate(['/residente']);
+      } 
+      else if (resp.rol === 'ADMIN') {
+        this.router.navigate(['/administrador']);
+      } 
+      else if (resp.rol === 'SECURITY') {
+        this.router.navigate(['/vigilante']);
+      } 
+      else {
+        console.warn('⚠ Rol no reconocido:', resp.rol);
+        this.router.navigate(['/login']); // fallback
+      }
+    },
       error: (err) => {
         console.error('❌ Error en inicio de sesión:', err);
         alert('Error al iniciar sesión. Verifique sus credenciales.');

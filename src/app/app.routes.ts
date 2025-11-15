@@ -31,6 +31,7 @@ export const routes: Routes = [
     {path: 'registrar-residente', component: CrearResidente},
 
 
+
     // {path: 'registro', component: Registro},
     {path: 'apartamentos', component: Apartamentos},
     {path: 'vehiculos', component: Vehiculos},
