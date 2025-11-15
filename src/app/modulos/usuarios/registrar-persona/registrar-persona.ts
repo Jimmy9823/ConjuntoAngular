@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { PersonaService } from '../servicios/persona.service';
 import { Persona } from '../modelos/persona.model';
 import { Form } from '../../../shared/form/form';
+import { Boton } from '../../../shared/boton/boton';
 
 @Component({
   selector: 'app-crear-persona',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, Form],
+  imports: [CommonModule, ReactiveFormsModule, Form,Boton],
   templateUrl: './registrar-persona.html',
   styleUrls: ['./registrar-persona.css']
 })

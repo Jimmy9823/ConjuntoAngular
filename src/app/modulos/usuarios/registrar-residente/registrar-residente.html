@@ -1,54 +1,84 @@
-<div class="container">
-  <div class="header">
-    <h2>Registrar Nuevo Residente</h2>
-    <div class="button-group">
-      <button (click)="volverALogin()" class="btn btn-secondary">
-        ← Volver al Login
-      </button>
-      <button (click)="irAListaResidentes()" class="btn btn-info">
-        Ver Residentes →
-      </button>
-      <button (click)="irACrearPersona()" class="btn btn-success">
-        ＋ Crear Persona
-      </button>
+<body class="bg-gradient-to-r from-green-500 to-green-700 burbuja-fondo">
+
+<div class="container d-flex justify-content-center align-items-start py-10">
+
+    <div class="modern-card glass-effect p-5 organic-border elegant-shadow" 
+         style="max-width: 800px; width: 100%;">
+
+      
+
+      <!-- BOTONES DE ACCIÓN -->
+      <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap pb-3">
+        <app-boton
+          label="← Volver al Login"
+          tipo="secundario"
+          (accion)="volverALogin()"
+        ></app-boton>
+        
+
+        <app-boton
+          label="＋ Crear Persona"
+          tipo="transparente"
+          (accion)="irACrearPersona()"
+        ></app-boton>
+
+        <app-boton
+          label="Ver Residentes →"
+          tipo="secundario"
+          (accion)="irAListaResidentes()"
+        ></app-boton>
+      </div>
+
+      <div class="separator mb-4 bg-white"></div>
+
+      <!-- HEADER ICONO Y TITULO -->
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-white h2 font-black">Registrar Nuevo Residente</h2>
+        <p class="text-white mb-0">
+          Complete la información para registrar a una persona como residente en un apartamento.
+        </p>
+      </div>
+
+      <!-- MENSAJES DE ESTADO -->
+      <div *ngIf="mensaje" class="glass-message mb-3">
+        {{ mensaje }}
+      </div>
+
+      <!-- ALERTA TOKEN -->
+      <div *ngIf="!token" class="glass-warning mb-3">
+        <p>⚠️ No se encontró token de autenticación. Debes iniciar sesión primero.</p>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="form-container" *ngIf="token">
+
+        <div class="grid-form">
+          <app-form
+            [fields]="fields"
+            [formGroup]="residenteForm"
+            [disableSubmit]="residenteForm.invalid || cargando"
+            (submitForm)="onSubmit($event)"
+          ></app-form>
+        </div>
+
+        <!-- DEBUG -->
+        <div class="debug-info mt-4 glass-debug p-3" *ngIf="residenteForm.value.personaId">
+          <h4 class="fw-semibold text-white">📊 Debug Info</h4>
+          <p><strong>Token:</strong> {{ token ? 'Presente' : 'Faltante' }}</p>
+          <p><strong>Formulario válido:</strong> {{ residenteForm.valid }}</p>
+          <p><strong>Campos llenos:</strong> {{ contarCamposLlenos() }}/{{ fields.length }}</p>
+          <p><strong>Personas cargadas:</strong> {{ opciones.personas.length }}</p>
+
+          <details class="mt-2 text-white">
+            <summary class="cursor-pointer">Ver datos del formulario</summary>
+            <pre class="mt-2 bg-dark text-light p-3 rounded">{{ residenteForm.value | json }}</pre>
+          </details>
+        </div>
+
+      </div>
+
     </div>
+
   </div>
 
-  <!-- Mensajes de estado -->
-  <div *ngIf="mensaje" [class]="esError ? 'mensaje error' : 'mensaje'">
-    {{ mensaje }}
-  </div>
-
-  <!-- Información del token -->
-  <div *ngIf="!token" class="token-alert">
-    <p>⚠️ No se encontró token de autenticación. Debes iniciar sesión primero.</p>
-  </div>
-
-  <!-- Formulario de creación -->
-  <div class="form-container" *ngIf="token">
-    <div class="form-info">
-      <h4>📋 Información del Residente</h4>
-      <p>Complete la información para registrar a una persona como residente en un apartamento.</p>
-    </div>
-
-    <app-form
-      [fields]="fields"
-      [formGroup]="residenteForm"
-      [disableSubmit]="residenteForm.invalid || cargando"
-      (submitForm)="onSubmit($event)">
-    </app-form>
-
-    <!-- Información de debug -->
-    <div class="debug-info" *ngIf="residenteForm.value.personaId">
-      <h4>📊 Debug Info:</h4>
-      <p><strong>Token:</strong> {{ token ? 'Presente' : 'Faltante' }}</p>
-      <p><strong>Formulario válido:</strong> {{ residenteForm.valid }}</p>
-      <p><strong>Campos llenos:</strong> {{ contarCamposLlenos() }}/{{ fields.length }}</p>
-      <p><strong>Personas cargadas:</strong> {{ opciones.personas.length }}</p>
-      <details>
-        <summary>Ver datos del formulario</summary>
-        <pre>{{ residenteForm.value | json }}</pre>
-      </details>
-    </div>
-  </div>
-</div>
+</body>
