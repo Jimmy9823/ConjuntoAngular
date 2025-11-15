@@ -15,7 +15,7 @@ import { AuthLogin } from './modulos/usuarios/auth-login/auth-login';
 import { ListaPersonas } from './modulos/usuarios/listar-personas/listar-personas';
 import { ListaPersonasFiltros } from './modulos/usuarios/listar-usuarios/listar-usuarios';
 import { CrearPersona } from './modulos/usuarios/registrar-persona/registrar-persona';
-import {CrearResidente} from './modulos/usuarios/registrar-residente/registrar-residente';
+import { CrearResidente } from './modulos/usuarios/registrar-residente/registrar-residente';
 
 export const routes: Routes = [
     {path: '', component: Inicio},
