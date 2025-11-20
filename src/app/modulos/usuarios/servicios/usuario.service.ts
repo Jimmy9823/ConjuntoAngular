@@ -60,4 +60,39 @@ export class UsuarioService {
     localStorage.removeItem('rol');
     localStorage.removeItem('idUsuario');
   }
+
+  // Solicita un correo para enviar enlace de recuperación
+  recuperarPassword(correo: string) {
+    return this.http.post(`${this.base}/recuperar`, { correo });
+  }
+
+  // Reset password (token y nueva contraseña)
+ resetPassword(token: string, password: string, confirmPassword: string) {
+
+  const body = new URLSearchParams();
+  body.set('token', token);
+  body.set('password', password);
+  body.set('confirmPassword', confirmPassword);
+
+  return this.http.post(
+    `${this.base}/reset-password`,
+    body.toString(),
+    {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'text/plain'
+      },
+      responseType: 'text'  // <-- ESTA LÍNEA ES CLAVE
+    }
+  );
+}
+
+
+  // Validar token desde el correo (opcional)
+  validarToken(token: string) {
+    return this.http.get(`${this.base}/validar-token`, {
+      params: { token }
+    });
+  }
+
 }
