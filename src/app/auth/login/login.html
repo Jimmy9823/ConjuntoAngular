@@ -1,7 +1,8 @@
 <body class="bg-gradient-to-r from-green-500 to-green-700">
 
  <div class="container d-flex justify-content-center align-items-center vh-100">
-  <div class="modern-card glass-effect p-4 organic-border elegant-shadow" style="max-width: 450px; width: 100%;">
+  <div class="modern-card glass-effect p-4 organic-border elegant-shadow" style="max-width: 450px; width: 100%">
+
     <div class="text-center mb-4">
       <div class="icon-box gradient-primary mx-auto mb-3">
         <i class="fas fa-building fa-lg text-white"></i>
@@ -10,16 +11,26 @@
       <p class="text-gray mb-0">Accede a tu portal residencial</p>
     </div>
 
-    <!-- Formulario -->
+    <!-- FORMULARIO -->
     <app-form
-      [formGroup]="formGroup"
+      [formGroup]="loginForm"
       [fields]="fields"
-      (ngSubmit)="login()">
+      [disableSubmit]="disableSubmit"
+      (submitForm)="onSubmit($event)">
     </app-form>
 
+    <!-- ¿Olvidaste tu contraseña? -->
     <div class="text-center mt-3">
-      <p class="text-gray">¿No tienes cuenta?
-        <a routerLink="/registro" class="link-text">Regístrate aquí</a>
+      <a routerLink="/recuperar" class="link-text small-link">
+        ¿Olvidaste tu contraseña?
+      </a>
+    </div>
+
+    <!-- Registro -->
+    <div class="text-center">
+      <p class="text-gray">
+        <strong>¿No tienes cuenta?</strong>
+        <a routerLink="/registro" class="link-text"> Regístrate aquí</a>
       </p>
     </div>
   </div>

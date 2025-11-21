@@ -16,11 +16,14 @@ import { ListaPersonas } from './modulos/usuarios/listar-personas/listar-persona
 import { ListaPersonasFiltros } from './modulos/usuarios/listar-usuarios/listar-usuarios';
 import { CrearPersona } from './modulos/usuarios/registrar-persona/registrar-persona';
 import { CrearResidente } from './modulos/usuarios/registrar-residente/registrar-residente';
+import { ResetPassword } from './modulos/usuarios/reset-password/reset-password';
+import { RecuperarContrasena } from './modulos/usuarios/recuperar-contrasena/recuperar-contrasena';
+import { Registro } from './auth/registro/registro';
 
 export const routes: Routes = [
     {path: '', component: Inicio},
     {path: 'administrador', component: Administrador},
-    {path: 'registro', component: AuthUsuariosRegitro},
+    {path: 'registro2', component: AuthUsuariosRegitro},
     {path: 'residente', component: Residente},
     {path: 'vigilante', component: Vigilante},
     {path: 'login', component: Login},
@@ -29,14 +32,17 @@ export const routes: Routes = [
     {path: 'listar2', component: ListaPersonasFiltros},
     {path: 'registrar-persona', component: CrearPersona},
     {path: 'registrar-residente', component: CrearResidente},
+    {path: 'recuperar', component: RecuperarContrasena},
 
 
 
-    // {path: 'registro', component: Registro},
+    {path: 'registro', component: Registro},
     {path: 'apartamentos', component: Apartamentos},
     {path: 'vehiculos', component: Vehiculos},
     {path: 'residentes', component: Residentes},
     {path: 'torres', component: Torres},
     {path: 'parqueaderos', component: Parqueaderos},
+    {path: 'reset-password', component: ResetPassword},
     {path: '**', component: Error404 }
+    
 ];
