@@ -6,3 +6,12 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
+.dark-background {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzxwzN8RKrxTUvIXHpPThGYFtU0isG9jc5zqrJTNUannsGla1pqdmUnwkfBQKYEknR3s1cZJlFgdYgevoLLQes4KAnhibCP1aJWPaoOGOAloqr6XYpF51Wy8-z73QbkLFUcgBb0=s1360-w1360-h1020-rw');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}

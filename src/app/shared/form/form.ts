@@ -19,6 +19,11 @@ export class Form {
   @Output() submitForm = new EventEmitter<any>();
   @Output() valueChanges = new EventEmitter<any>();
 
+  // Nuevos inputs para configurar el botón
+  @Input() showSubmitButton: boolean = true; // Mostrar/ocultar botón
+  @Input() submitButtonText: string = 'Enviar'; // Texto del botón
+  @Input() submitButtonIcon: string = 'fa fa-paper-plane'; // Icono del botón
+
   ngOnInit() {
     if (!this.formGroup) {
       console.error('❌ ERROR: Debes pasar un FormGroup desde el componente padre');

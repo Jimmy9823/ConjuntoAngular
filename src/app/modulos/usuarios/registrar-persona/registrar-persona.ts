@@ -54,71 +54,83 @@ export class CrearPersona implements OnInit {
   // Fields para el formulario reutilizable
   fields = [
     {
+      name: 'nombres',
+      label: 'Nombres *',
+      type: 'text',
+      placeholder: 'Ej: Juan Carlos',
+      required: true,
+      cols: 6 
+    },
+     {
+      name: 'apellidos',
+      label: 'Apellidos *',
+      type: 'text',
+      placeholder: 'Ej: Pérez García',
+      required: true,
+      cols: 6 
+    },
+    {
       name: 'numeroDocumento',
       label: 'Número de Documento *',
       type: 'text',
       placeholder: 'Ej: 123456789',
-      required: true
+      required: true,
+          cols: 6 
+
     },
     {
       name: 'tipoDocumentoId',
       label: 'Tipo de Documento *',
       type: 'select',
       options: this.opcionesTipoDocumento,
-      required: true
+      required: true,
+          cols: 6 
+
+    },
+    
+   
+    
+    {
+      name: 'fechaNacimiento',
+      label: 'Fecha de Nacimiento *',
+      type: 'date', // Cambiado a 'date' para usar input nativo de fecha
+      required: true,
+      cols: 6 
     },
     {
-      name: 'nombres',
-      label: 'Nombres *',
-      type: 'text',
-      placeholder: 'Ej: Juan Carlos',
-      required: true
-    },
-    {
-      name: 'apellidos',
-      label: 'Apellidos *',
-      type: 'text',
-      placeholder: 'Ej: Pérez García',
-      required: true
+      name: 'genero',
+      label: 'Género',
+      type: 'select',
+      options: this.opcionesGenero,
+      cols: 6 
     },
     {
       name: 'telefono',
       label: 'Teléfono *',
       type: 'text',
       placeholder: 'Ej: 3001234567',
-      required: true
+      required: true,
+      cols: 6 
     },
     {
-      name: 'fechaNacimiento',
-      label: 'Fecha de Nacimiento *',
-      type: 'date', // Cambiado a 'date' para usar input nativo de fecha
-      required: true
-    },
-    {
-      name: 'genero',
-      label: 'Género',
-      type: 'select',
-      options: this.opcionesGenero
-    },
+  type: 'separator',
+  label: 'Datos de Contacto'
+},
     {
       name: 'contactoEmergenciaNombre',
       label: 'Nombre Contacto Emergencia',
       type: 'text',
       placeholder: 'Ej: María García',
-      maxLength: 200
+      maxLength: 200,
+      cols: 6 
     },
     {
       name: 'contactoEmergenciaTelefono',
       label: 'Teléfono Contacto Emergencia',
       type: 'text',
       placeholder: 'Ej: 3007654321',
-      maxLength: 15
-    },
-    {
-      name: 'fotoUrl',
-      label: 'URL de Foto (Opcional)',
-      type: 'text',
-      placeholder: 'https://ejemplo.com/foto.jpg'
+      maxLength: 15,
+      cols: 6 
     }
   ];
 
@@ -233,7 +245,7 @@ export class CrearPersona implements OnInit {
   // Navegación - Volver al Login
   volverAlLogin() {
     console.log('🔙 Navegando al login');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login2']);
   }
 
   // Navegación - Ir a Residentes
