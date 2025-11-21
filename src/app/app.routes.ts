@@ -18,11 +18,12 @@ import { CrearPersona } from './modulos/usuarios/registrar-persona/registrar-per
 import { CrearResidente } from './modulos/usuarios/registrar-residente/registrar-residente';
 import { ResetPassword } from './modulos/usuarios/reset-password/reset-password';
 import { RecuperarContrasena } from './modulos/usuarios/recuperar-contrasena/recuperar-contrasena';
+import { Registro } from './auth/registro/registro';
 
 export const routes: Routes = [
     {path: '', component: Inicio},
     {path: 'administrador', component: Administrador},
-    {path: 'registro', component: AuthUsuariosRegitro},
+    {path: 'registro2', component: AuthUsuariosRegitro},
     {path: 'residente', component: Residente},
     {path: 'vigilante', component: Vigilante},
     {path: 'login', component: Login},
@@ -35,7 +36,7 @@ export const routes: Routes = [
 
 
 
-    // {path: 'registro', component: Registro},
+    {path: 'registro', component: Registro},
     {path: 'apartamentos', component: Apartamentos},
     {path: 'vehiculos', component: Vehiculos},
     {path: 'residentes', component: Residentes},

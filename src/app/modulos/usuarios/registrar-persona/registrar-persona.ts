@@ -239,7 +239,7 @@ export class CrearPersona implements OnInit {
   // Navegación - Ir a Residentes
   irAResidentes() {
     console.log('➡️ Navegando a residentes');
-    this.router.navigate(['/residentes']);
+    this.router.navigate(['/registrar-residente']);
   }
 
   contarCamposLlenos(): number {
