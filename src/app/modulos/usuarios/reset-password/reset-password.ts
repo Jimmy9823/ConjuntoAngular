@@ -58,7 +58,9 @@ export class ResetPassword {
     this.mensajeError = '';
     this.mensajeExito = '';
 
-    if (values.nuevaPassword !== values.confirmarPassword) {
+    console.log("DEBUG-ANGULAR: onSubmit()", values);
+
+    if (values.password !== values.confirmPassword) {
       this.mensajeError = 'Las contraseñas no coinciden.';
       return;
     }
@@ -67,14 +69,15 @@ export class ResetPassword {
 
     this.usuarioService.resetPassword(
       this.token,
-      values.nuevaPassword,
-      values.confirmarPassword
+      values.password,
+      values.confirmPassword
     ).subscribe({
       next: (resp: string) => {
         this.mensajeExito = resp;
-        setTimeout(() => this.router.navigate(['/login']), 2000);
+        setTimeout(() => this.router.navigate(['/login2']), 2000);
       },
       error: err => {
+        console.log("DEBUG-ANGULAR ERROR:", err);
         this.mensajeError = err.error || 'No se pudo restablecer la contraseña';
         this.disableSubmit = false;
       }

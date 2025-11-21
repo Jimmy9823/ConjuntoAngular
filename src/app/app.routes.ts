@@ -17,6 +17,7 @@ import { ListaPersonasFiltros } from './modulos/usuarios/listar-usuarios/listar-
 import { CrearPersona } from './modulos/usuarios/registrar-persona/registrar-persona';
 import { CrearResidente } from './modulos/usuarios/registrar-residente/registrar-residente';
 import { ResetPassword } from './modulos/usuarios/reset-password/reset-password';
+import { RecuperarContrasena } from './modulos/usuarios/recuperar-contrasena/recuperar-contrasena';
 
 export const routes: Routes = [
     {path: '', component: Inicio},
@@ -30,6 +31,7 @@ export const routes: Routes = [
     {path: 'listar2', component: ListaPersonasFiltros},
     {path: 'registrar-persona', component: CrearPersona},
     {path: 'registrar-residente', component: CrearResidente},
+    {path: 'recuperar', component: RecuperarContrasena},
 
 
 

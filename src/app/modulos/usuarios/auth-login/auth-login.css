@@ -4,3 +4,23 @@
   background: rgba(0, 0, 0, 0.35);
   border-radius: 2px;
 }
+a[routerLink] {
+  position: relative;
+  z-index: 10; /* Se asegura de estar encima de overlays */
+  cursor: pointer !important;
+}
+
+a[routerLink]:hover {
+  text-decoration: underline;
+}
+.container, 
+.modern-card, 
+.glass-effect {
+  position: relative;
+  z-index: 5;
+}
+
+.link-text, .small-link {
+  z-index: 9999 !important;
+  position: relative;
+}

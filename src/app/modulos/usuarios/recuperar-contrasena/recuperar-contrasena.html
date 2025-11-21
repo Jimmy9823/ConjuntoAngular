@@ -1,0 +1,45 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+
+  <div class="modern-card glass-effect p-4 organic-border elegant-shadow" 
+       style="max-width: 450px; width: 100%;">
+
+    <h3 class="text-center mb-3">Recuperar Contraseña</h3>
+
+    <p class="text-center text-muted mb-4">
+      Ingresa tu correo y te enviaremos un enlace para restablecer tu contraseña.
+    </p>
+
+    <app-form
+      [formGroup]="formGroup"
+      [fields]="fields"
+      [disableSubmit]="disableSubmit"
+      (submitForm)="onSubmit($event)">
+    </app-form>
+
+    <!-- ❌ CORREO NO REGISTRADO -->
+    <div *ngIf="correoNoRegistrado" class="alert alert-warning mt-3 text-center">
+      El correo electrónico no está registrado en nuestra aplicación.
+    </div>
+
+    <!-- ✔️ BOTÓN PARA REGISTRARSE (FUERA DE LA ALERTA) -->
+    <div *ngIf="correoNoRegistrado" class="mt-2 text-center">
+      <app-boton
+        label="Registrarse"
+        icono="fa fa-paper-plane"
+        tipo="primario"
+        [estilo]="{ 'width': '100%' }"
+        (accion)="irARegistro()"
+      ></app-boton>
+    </div>
+
+    <!-- MENSAJES GENERALES -->
+    <div *ngIf="mensajeError" class="alert alert-danger mt-3">
+      {{ mensajeError }}
+    </div>
+
+    <div *ngIf="mensajeExito" class="alert alert-success mt-3">
+      {{ mensajeExito }}
+    </div>
+
+  </div>
+</div>
